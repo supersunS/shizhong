@@ -1,0 +1,47 @@
+//
+//  shizhong-prefix.pch
+//  shizhong
+//
+//  Created by sundaoran on 15/11/23.
+//  Copyright © 2015年 sundaoran. All rights reserved.
+//
+
+#ifndef shizhong_prefix_pch
+#define shizhong_prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define NSLog(...)
+#define debugMethod()
+#endif
+
+
+#define LikeFontName(fontSize)  [UIFont systemFontOfSize:fontSize]
+
+//获取设备的物理高度
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+//获取设备的物理宽度
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+
+
+#import "likes_ViewController.h"
+#import "sz_TabBarController.h"
+#import "likes_NavigationController.h"
+#import "likes_NavigationView.h"
+#import <AFNetworking.h>
+#import <QiniuSDK.h>
+
+#import "categoryHead.h"
+#import "libraryHead.h"
+
+#import "SimpleHead.h"
+#import "DefineHead.h"
+
+
+#endif /* shizhong_prefix_pch */
