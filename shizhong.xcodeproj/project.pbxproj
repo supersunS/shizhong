@@ -35,7 +35,6 @@
 		449F07281D82BD9F002FE9F4 /* sz_musicSortChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 449F07271D82BD9F002FE9F4 /* sz_musicSortChangeView.m */; };
 		44D92C2B1D6DA73000C73E5D /* sun_musicDeatilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D92C2A1D6DA73000C73E5D /* sun_musicDeatilViewController.m */; };
 		5BB439571D0EA7D000BC5EC9 /* sz_systemConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB439561D0EA7D000BC5EC9 /* sz_systemConfigure.m */; };
-		70009E361E7E50DB008C0A8E /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70009E311E7E50CB008C0A8E /* IJKMediaFramework.framework */; };
 		70009E381E7E5137008C0A8E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 70009E371E7E5137008C0A8E /* libz.tbd */; };
 		70009E3A1E7E513E008C0A8E /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 70009E391E7E513E008C0A8E /* libbz2.tbd */; };
 		70009E3E1E7E5244008C0A8E /* e_audioPlayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 70009E3D1E7E5244008C0A8E /* e_audioPlayManager.m */; };
@@ -727,27 +726,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		70009E301E7E50CB008C0A8E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 70009E2A1E7E50CA008C0A8E /* IJKMediaPlayer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E654EA8A1B6B27E600B0F2D0;
-			remoteInfo = IJKMediaFramework;
-		};
-		70009E321E7E50CB008C0A8E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 70009E2A1E7E50CA008C0A8E /* IJKMediaPlayer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5450B0431E63EA4300568494;
-			remoteInfo = IJKMediaFrameworkWithSSL;
-		};
-		70009E341E7E50CB008C0A8E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 70009E2A1E7E50CA008C0A8E /* IJKMediaPlayer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E654EA941B6B27E600B0F2D0;
-			remoteInfo = IJKMediaFrameworkTests;
-		};
 		70DBAB0E1C01A06800736AAB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 70DBAAEC1C01A06800736AAB /* Project object */;
@@ -761,6 +739,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 70DBAAF31C01A06800736AAB;
 			remoteInfo = shizhong;
+		};
+		717DE7EC213E97F80052603D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 717DE7E6213E97F80052603D /* IJKMediaPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E654EA8A1B6B27E600B0F2D0;
+			remoteInfo = IJKMediaFramework;
+		};
+		717DE7EE213E97F80052603D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 717DE7E6213E97F80052603D /* IJKMediaPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5450B0431E63EA4300568494;
+			remoteInfo = IJKMediaFrameworkWithSSL;
+		};
+		717DE7F0213E97F80052603D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 717DE7E6213E97F80052603D /* IJKMediaPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E654EA941B6B27E600B0F2D0;
+			remoteInfo = IJKMediaFrameworkTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -798,7 +797,6 @@
 		44D92C2A1D6DA73000C73E5D /* sun_musicDeatilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sun_musicDeatilViewController.m; sourceTree = "<group>"; };
 		5BB439551D0EA7D000BC5EC9 /* sz_systemConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sz_systemConfigure.h; sourceTree = "<group>"; };
 		5BB439561D0EA7D000BC5EC9 /* sz_systemConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sz_systemConfigure.m; sourceTree = "<group>"; };
-		70009E2A1E7E50CA008C0A8E /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = "../../../ijkplayer-ios/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj"; sourceTree = "<group>"; };
 		70009E371E7E5137008C0A8E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		70009E391E7E513E008C0A8E /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		70009E3C1E7E5244008C0A8E /* e_audioPlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = e_audioPlayManager.h; sourceTree = "<group>"; };
@@ -1627,6 +1625,7 @@
 		70F73EEF1C5CEC4A00C32D01 /* sz_chat_nomal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sz_chat_nomal@3x.png"; sourceTree = "<group>"; };
 		70FA5FDE1D64B56400089352 /* sz_musicListByClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sz_musicListByClassViewController.h; sourceTree = "<group>"; };
 		70FA5FDF1D64B56400089352 /* sz_musicListByClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sz_musicListByClassViewController.m; sourceTree = "<group>"; };
+		717DE7E6213E97F80052603D /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = "../ijkplayer-ios/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj"; sourceTree = "<group>"; };
 		8445BF091E0A906400A08AFB /* GeTuiExtSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiExtSdk.h; sourceTree = "<group>"; };
 		846B00D71DF42B3500C46848 /* SZSMyMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZSMyMusicViewController.h; sourceTree = "<group>"; };
 		846B00D81DF42B3500C46848 /* SZSMyMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZSMyMusicViewController.m; sourceTree = "<group>"; };
@@ -1792,7 +1791,6 @@
 			files = (
 				70009E3A1E7E513E008C0A8E /* libbz2.tbd in Frameworks */,
 				70009E381E7E5137008C0A8E /* libz.tbd in Frameworks */,
-				70009E361E7E50DB008C0A8E /* IJKMediaFramework.framework in Frameworks */,
 				7094132A1E083B4000E09703 /* libc++.tbd in Frameworks */,
 				703CD3391C576FCC00811157 /* WebKit.framework in Frameworks */,
 				87C30A9F1C252DA2003F572A /* CoreLocation.framework in Frameworks */,
@@ -1848,16 +1846,6 @@
 				200C4C5C0592158AAB5C7A32 /* Pods-shizhong.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		70009E2B1E7E50CA008C0A8E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				70009E311E7E50CB008C0A8E /* IJKMediaFramework.framework */,
-				70009E331E7E50CB008C0A8E /* IJKMediaFrameworkWithSSL.framework */,
-				70009E351E7E50CB008C0A8E /* IJKMediaFrameworkTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		70009E3B1E7E5244008C0A8E /* audioPlayManager */ = {
@@ -2919,8 +2907,8 @@
 		70DBAAEB1C01A06800736AAB = {
 			isa = PBXGroup;
 			children = (
+				717DE7E6213E97F80052603D /* IJKMediaPlayer.xcodeproj */,
 				70609D6D1F1676AF009A8A46 /* LaSong.mp3 */,
-				70009E2A1E7E50CA008C0A8E /* IJKMediaPlayer.xcodeproj */,
 				70DBAAF61C01A06800736AAB /* shizhong */,
 				70DBAB101C01A06800736AAB /* shizhongTests */,
 				70DBAB1B1C01A06800736AAB /* shizhongUITests */,
@@ -3115,6 +3103,16 @@
 				871DF69F1C180B920064AD6C /* sz_videoDetailedViewController.m */,
 			);
 			path = viewController;
+			sourceTree = "<group>";
+		};
+		717DE7E7213E97F80052603D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				717DE7ED213E97F80052603D /* IJKMediaFramework.framework */,
+				717DE7EF213E97F80052603D /* IJKMediaFrameworkWithSSL.framework */,
+				717DE7F1213E97F80052603D /* IJKMediaFrameworkTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		870452391C22A04800DE82F4 /* music */ = {
@@ -3865,8 +3863,7 @@
 				70DBAAF01C01A06800736AAB /* Sources */,
 				70DBAAF11C01A06800736AAB /* Frameworks */,
 				70DBAAF21C01A06800736AAB /* Resources */,
-				4A406F29F3982E9C9AA386CA /* [CP] Embed Pods Frameworks */,
-				58EDF75C3C49B8D53B13068E /* [CP] Copy Pods Resources */,
+				7023381C7761F5C4EFCA3085 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3924,7 +3921,7 @@
 				TargetAttributes = {
 					70DBAAF31C01A06800736AAB = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = D8H3FG69ZS;
+						DevelopmentTeam = 39KFNN3ED2;
 						DevelopmentTeamName = "NEISHENME Beijing Information Technology Co., Ltd.";
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -3959,8 +3956,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 70009E2B1E7E50CA008C0A8E /* Products */;
-					ProjectRef = 70009E2A1E7E50CA008C0A8E /* IJKMediaPlayer.xcodeproj */;
+					ProductGroup = 717DE7E7213E97F80052603D /* Products */;
+					ProjectRef = 717DE7E6213E97F80052603D /* IJKMediaPlayer.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -3973,25 +3970,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		70009E311E7E50CB008C0A8E /* IJKMediaFramework.framework */ = {
+		717DE7ED213E97F80052603D /* IJKMediaFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = IJKMediaFramework.framework;
-			remoteRef = 70009E301E7E50CB008C0A8E /* PBXContainerItemProxy */;
+			remoteRef = 717DE7EC213E97F80052603D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		70009E331E7E50CB008C0A8E /* IJKMediaFrameworkWithSSL.framework */ = {
+		717DE7EF213E97F80052603D /* IJKMediaFrameworkWithSSL.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = IJKMediaFrameworkWithSSL.framework;
-			remoteRef = 70009E321E7E50CB008C0A8E /* PBXContainerItemProxy */;
+			remoteRef = 717DE7EE213E97F80052603D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		70009E351E7E50CB008C0A8E /* IJKMediaFrameworkTests.xctest */ = {
+		717DE7F1213E97F80052603D /* IJKMediaFrameworkTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = IJKMediaFrameworkTests.xctest;
-			remoteRef = 70009E341E7E50CB008C0A8E /* PBXContainerItemProxy */;
+			remoteRef = 717DE7F0213E97F80052603D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -4462,49 +4459,56 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A406F29F3982E9C9AA386CA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shizhong/Pods-shizhong-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		58EDF75C3C49B8D53B13068E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shizhong/Pods-shizhong-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		669921206A1811190B04A1F3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-shizhong-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7023381C7761F5C4EFCA3085 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shizhong/Pods-shizhong-resources.sh",
+				"${PODS_ROOT}/EaseMobSDK/EaseMobSDK/resources/EaseMob.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/QQ/QQSDK/TencentOpenApi_IOS_Bundle.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/Sina/SinaSDK/WeiboSDK.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EaseMob.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKPromptResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TencentOpenApi_IOS_Bundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shizhong/Pods-shizhong-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -4926,7 +4930,7 @@
 				CODE_SIGN_ENTITLEMENTS = shizhong/shizhong.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Push Services: com.shizhongapp.shizhong";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = D8H3FG69ZS;
+				DEVELOPMENT_TEAM = 39KFNN3ED2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5002,7 +5006,7 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hahajing.NewHahaManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hecaijing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5018,7 +5022,7 @@
 				CODE_SIGN_ENTITLEMENTS = shizhong/shizhong.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Push Services: com.shizhongapp.shizhong";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = D8H3FG69ZS;
+				DEVELOPMENT_TEAM = 39KFNN3ED2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5094,7 +5098,7 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hahajing.NewHahaManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hecaijing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

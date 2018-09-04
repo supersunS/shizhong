@@ -193,7 +193,7 @@ THE SOFTWARE.
 
 The MIT License (MIT)
 
-Copyright (c) 2011-2015 qiniu.com
+Copyright (c) 2011-2017 qiniu.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -258,7 +258,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ## SDWebImage
 
-Copyright (c) 2016 Olivier Poitrey rs@dailymotion.com
+Copyright (c) 2009-2017 Olivier Poitrey rs@dailymotion.com
  
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -316,7 +316,7 @@ Copyright 2011 - 2015 UMeng.com. All rights reserved.
 
 ## UMengUShare
 
-Copyright 2011 - 2016 UMeng.com. All rights reserved.
+Copyright 2011 - 2018 UMeng.com. All rights reserved.
 
 
 ## WPAttributedMarkup

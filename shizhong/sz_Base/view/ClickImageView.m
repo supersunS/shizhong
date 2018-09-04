@@ -16,12 +16,12 @@
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 -(void)getImageBlock:(successImage)blockImage
 {
@@ -39,13 +39,14 @@
         self.contentMode = UIViewContentModeScaleAspectFill;
         
         _placeholderImage=image;
-        [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:_placeholderImage options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+        [self sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:url] andPlaceholderImage:_placeholderImage options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-           if(error)
-           {
-               self.image=_placeholderImage;
-           }
+        } completed:^(UIImage *image, NSError *error, EMSDImageCacheType cacheType, NSURL *imageURL) {
+            if(error)
+            {
+                self.image=_placeholderImage;
+            }
             if(_downSuccessImage)
             {
                 _downSuccessImage(image);
@@ -69,35 +70,35 @@
 {
     if(!([url isEqualToString:@"none"]||[url isEqualToString:@"null"]||[url isEqualToString:@""]|| [url hasPrefix:@"none"]))
     {
-    [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:_placeholderImage options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        if(!error)
-        {
-            _imageClick=clickImage;
-            [UIView animateWithDuration:0.25 animations:^{
-                self.image=image;;
-            }];
-        }
-        else
-        {
-            _imageClick=clickImage;
-            [UIView animateWithDuration:1.0 animations:^{
-                self.image=_placeholderImage;;
-            }];
-        }
-        if(_downSuccessImage)
-        {
-            _downSuccessImage(image);
-        }
-    }];
+        [self sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:url] andPlaceholderImage:_placeholderImage options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            
+        } completed:^(UIImage *image, NSError *error, EMSDImageCacheType cacheType, NSURL *imageURL) {
+            if(!error)
+            {
+                _imageClick=clickImage;
+                [UIView animateWithDuration:0.25 animations:^{
+                    self.image=image;;
+                }];
+            }
+            else
+            {
+                _imageClick=clickImage;
+                [UIView animateWithDuration:1.0 animations:^{
+                    self.image=_placeholderImage;;
+                }];
+            }
+            if(_downSuccessImage)
+            {
+                _downSuccessImage(image);
+            }
+        }];
     }
     else
     {
         self.image=_placeholderImage;
         _imageClick=clickImage;
     }
-
+    
 }
 
 

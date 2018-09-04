@@ -32,7 +32,6 @@
 #import "QNCrc32.h"
 #import "QNFile.h"
 #import "QNFormUpload.h"
-#import "QNHttpManager.h"
 #import "QNResponseInfo.h"
 #import "QNResumeUpload.h"
 #import "QNSessionManager.h"
@@ -73,13 +72,7 @@
         }
         _config = config;
 #if (defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000) || (defined(__MAC_OS_X_VERSION_MAX_ALLOWED) && __MAC_OS_X_VERSION_MAX_ALLOWED >= 1090)
-        if (hasNSURLSession()) {
-            _httpManager = [[QNSessionManager alloc] initWithProxy:config.proxy timeout:config.timeoutInterval urlConverter:config.converter dns:config.dns];
-        } else {
-            _httpManager = [[QNHttpManager alloc] initWithTimeout:config.timeoutInterval urlConverter:config.converter dns:config.dns];
-        }
-#else
-        _httpManager = [[QNHttpManager alloc] initWithTimeout:config.timeoutInterval urlConverter:config.converter dns:config.dns];
+        _httpManager = [[QNSessionManager alloc] initWithProxy:config.proxy timeout:config.timeoutInterval urlConverter:config.converter];
 #endif
     }
     return self;
@@ -109,7 +102,7 @@
     }
     if (input == nil) {
         desc = @"no input data";
-    } else if (token == nil || [token isEqualToString:@""]) {
+    } else if (token == nil || [token isEqual:[NSNull null]] || [token isEqualToString:@""]) {
         desc = @"no token";
     }
     if (desc != nil) {
@@ -126,6 +119,15 @@
           token:(NSString *)token
        complete:(QNUpCompletionHandler)completionHandler
          option:(QNUploadOption *)option {
+    [self putData:data fileName:nil key:key token:token complete:completionHandler option:option];
+}
+
+- (void)putData:(NSData *)data
+       fileName:(NSString *)fileName
+            key:(NSString *)key
+          token:(NSString *)token
+       complete:(QNUpCompletionHandler)completionHandler
+         option:(QNUploadOption *)option {
     if ([QNUploadManager checkAndNotifyError:key token:token input:data complete:completionHandler]) {
         return;
     }
@@ -138,28 +140,37 @@
         return;
     }
 
-    if ([data length] == 0) {
-        QNAsyncRunInMain(^{
-            completionHandler([QNResponseInfo responseInfoOfZeroData:nil], key, nil);
+    [_config.zone preQuery:t on:^(int code) {
+        if (code != 0) {
+            QNAsyncRunInMain(^{
+                completionHandler([QNResponseInfo responseInfoWithInvalidToken:@"get zone failed"], key, nil);
+            });
+            return;
+        }
+        if ([data length] == 0) {
+            QNAsyncRunInMain(^{
+                completionHandler([QNResponseInfo responseInfoOfZeroData:nil], key, nil);
+            });
+            return;
+        }
+        QNUpCompletionHandler complete = ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+            QNAsyncRunInMain(^{
+                completionHandler(info, key, resp);
+            });
+        };
+        QNFormUpload *up = [[QNFormUpload alloc]
+                     initWithData:data
+                          withKey:key
+                        withFileName:fileName
+                        withToken:t
+            withCompletionHandler:complete
+                       withOption:option
+                  withHttpManager:_httpManager
+                withConfiguration:_config];
+        QNAsyncRun(^{
+            [up put];
         });
-        return;
-    }
-    QNUpCompletionHandler complete = ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
-        QNAsyncRunInMain(^{
-            completionHandler(info, key, resp);
-        });
-    };
-    QNFormUpload *up = [[QNFormUpload alloc]
-                 initWithData:data
-                      withKey:key
-                    withToken:t
-        withCompletionHandler:complete
-                   withOption:option
-              withHttpManager:_httpManager
-            withConfiguration:_config];
-    QNAsyncRun(^{
-        [up put];
-    });
+    }];
 }
 
 - (void)putFileInternal:(id<QNFileDelegate>)file
@@ -176,39 +187,48 @@
             return;
         }
 
-        QNUpCompletionHandler complete = ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
-            [file close];
-            QNAsyncRunInMain(^{
-                completionHandler(info, key, resp);
+        [_config.zone preQuery:t on:^(int code) {
+            if (code != 0) {
+                QNAsyncRunInMain(^{
+                    completionHandler([QNResponseInfo responseInfoWithInvalidToken:@"get zone failed"], key, nil);
+                });
+                return;
+            }
+            QNUpCompletionHandler complete = ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+                [file close];
+                QNAsyncRunInMain(^{
+                    completionHandler(info, key, resp);
+                });
+            };
+
+            if ([file size] <= _config.putThreshold) {
+                NSData *data = [file readAll];
+                NSString *fileName = [[file path] lastPathComponent];
+                [self putData:data fileName:fileName key:key token:token complete:completionHandler option:option];
+                return;
+            }
+
+            NSString *recorderKey = key;
+            if (_config.recorder != nil && _config.recorderKeyGen != nil) {
+                recorderKey = _config.recorderKeyGen(key, [file path]);
+            }
+
+            NSLog(@"recorder %@", _config.recorder);
+
+            QNResumeUpload *up = [[QNResumeUpload alloc]
+                         initWithFile:file
+                              withKey:key
+                            withToken:t
+                withCompletionHandler:complete
+                           withOption:option
+                         withRecorder:_config.recorder
+                      withRecorderKey:recorderKey
+                      withHttpManager:_httpManager
+                    withConfiguration:_config];
+            QNAsyncRun(^{
+                [up run];
             });
-        };
-
-        if ([file size] <= _config.putThreshold) {
-            NSData *data = [file readAll];
-            [self putData:data key:key token:token complete:complete option:option];
-            return;
-        }
-
-        NSString *recorderKey = key;
-        if (_config.recorder != nil && _config.recorderKeyGen != nil) {
-            recorderKey = _config.recorderKeyGen(key, [file path]);
-        }
-
-        NSLog(@"recorder %@", _config.recorder);
-
-        QNResumeUpload *up = [[QNResumeUpload alloc]
-                     initWithFile:file
-                          withKey:key
-                        withToken:t
-            withCompletionHandler:complete
-                       withOption:option
-                     withRecorder:_config.recorder
-                  withRecorderKey:recorderKey
-                  withHttpManager:_httpManager
-                withConfiguration:_config];
-        QNAsyncRun(^{
-            [up run];
-        });
+        }];
     }
 }
 

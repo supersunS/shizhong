@@ -22,33 +22,41 @@ PODS:
     - AFNetworking/NSURLSession
   - DZNEmptyDataSet (1.8.1)
   - EaseMobSDK (2.2.8)
-  - FMDB (2.6.2):
-    - FMDB/standard (= 2.6.2)
-  - FMDB/standard (2.6.2)
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
   - GRAESCrypt (1.0.1)
-  - HappyDNS (0.3.10)
-  - Masonry (1.0.2)
-  - MJRefresh (3.1.12)
-  - Qiniu (7.0.20):
-    - AFNetworking (~> 2.0)
+  - HappyDNS (0.3.14)
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.15.6)
+  - Qiniu (7.2.5):
     - HappyDNS (~> 0.3)
   - Reachability (3.2)
   - SBJson (5.0.0)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
   - SVProgressHUD (1.1.3)
-  - UMengAnalytics (4.1.8)
-  - UMengUShare/Core (6.1.1):
+  - UMengAnalytics (4.2.4)
+  - UMengUShare/Core (6.4.8.2):
     - UMengUShare/Network
-  - UMengUShare/Network (6.1.1)
-  - UMengUShare/Social/QQ (6.1.1):
+  - UMengUShare/Network (6.4.8.2)
+  - UMengUShare/Social/QQ (6.4.8.2):
     - UMengUShare/Core
-  - UMengUShare/Social/Sina (6.1.1):
+    - UMengUShare/Social/ReducedQQ
+  - UMengUShare/Social/ReducedQQ (6.4.8.2):
     - UMengUShare/Core
-  - UMengUShare/Social/WeChat (6.1.1):
+  - UMengUShare/Social/ReducedSina (6.4.8.2):
     - UMengUShare/Core
-  - UMengUShare/UI (6.1.1):
+  - UMengUShare/Social/ReducedWeChat (6.4.8.2):
+    - UMengUShare/Core
+  - UMengUShare/Social/Sina (6.4.8.2):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedSina
+  - UMengUShare/Social/WeChat (6.4.8.2):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedWeChat
+  - UMengUShare/UI (6.4.8.2):
     - UMengUShare/Core
   - WPAttributedMarkup (1.0.0)
 
@@ -72,24 +80,43 @@ DEPENDENCIES:
   - UMengUShare/UI
   - WPAttributedMarkup
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - DZNEmptyDataSet
+    - EaseMobSDK
+    - FMDB
+    - GRAESCrypt
+    - HappyDNS
+    - Masonry
+    - MJRefresh
+    - Qiniu
+    - Reachability
+    - SBJson
+    - SDWebImage
+    - SVProgressHUD
+    - UMengAnalytics
+    - UMengUShare
+    - WPAttributedMarkup
+
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EaseMobSDK: edcfe3b74b837f3ff709e263cbe1bd10a0300f33
-  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   GRAESCrypt: 25d8f5566827282a4aeb586fe32a8c6130ac734a
-  HappyDNS: 06a9fed2796663fd87626dbf02552933265bf059
-  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  Qiniu: 8958e70c02fb563c8c04d555bb5041441c5f4216
+  HappyDNS: dc6a164ee81979093123c241c6353bcf0218add6
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
+  Qiniu: 909b408ee489ea54827e9717be90b94bc9dfbc48
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SBJson: 73c848dc34be51fda282fab12bda6c426f5ead08
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
-  UMengAnalytics: 6ef66c49bea0779d2ce02a72d862510d97619a7a
-  UMengUShare: 0a80f54ee06f71f3de7c57764c36339e8bf9b7e7
+  UMengAnalytics: ef8d45f94c0e5771dc364cf6a5731d9d3b101da2
+  UMengUShare: 370d180101e13ee0227ae657ab119ba97243d2b3
   WPAttributedMarkup: eb50878af4ec647d8d2090f721a5cfe7d29c27fe
 
 PODFILE CHECKSUM: e589a28fae48cd7d24ccf29dd469f369c66e162e
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.6.0.beta.1

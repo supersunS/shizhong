@@ -9,7 +9,6 @@
 #import "QNResumeUpload.h"
 #import "QNConfiguration.h"
 #import "QNCrc32.h"
-#import "QNHttpManager.h"
 #import "QNRecorderDelegate.h"
 #import "QNResponseInfo.h"
 #import "QNUploadManager.h"
@@ -43,6 +42,8 @@ typedef void (^task)(void);
 //@property (nonatomic, strong) NSArray *fileAry;
 
 @property (nonatomic) float previousPercent;
+
+@property (nonatomic, strong) NSString *access; //AK
 
 - (void)makeBlock:(NSString *)uphost
            offset:(UInt32)offset
@@ -92,6 +93,8 @@ typedef void (^task)(void);
 
         _token = token;
         _previousPercent = 0;
+
+        _access = token.access;
     }
     return self;
 }
@@ -221,7 +224,7 @@ typedef void (^task)(void);
 
             NSString *nextHost = host;
             if (info.isConnectionBroken || info.needSwitchServer) {
-                nextHost = _config.upBackup.address;
+                nextHost = [_config.zone up:_token isHttps:_config.useHttps frozenDomain:nextHost];
             }
 
             [self nextTask:offset retriedTimes:retried + 1 host:nextHost];
@@ -321,13 +324,13 @@ typedef void (^task)(void);
              withData:(NSData *)data
     withCompleteBlock:(QNCompleteBlock)completeBlock
     withProgressBlock:(QNInternalProgressBlock)progressBlock {
-    [_httpManager post:url withData:data withParams:nil withHeaders:_headers withCompleteBlock:completeBlock withProgressBlock:progressBlock withCancelBlock:_option.cancellationSignal];
+    [_httpManager post:url withData:data withParams:nil withHeaders:_headers withCompleteBlock:completeBlock withProgressBlock:progressBlock withCancelBlock:_option.cancellationSignal withAccess:_access];
 }
 
 - (void)run {
     @autoreleasepool {
         UInt32 offset = [self recoveryFromRecord];
-        [self nextTask:offset retriedTimes:0 host:_config.up.address];
+        [self nextTask:offset retriedTimes:0 host:[_config.zone up:_token isHttps:_config.useHttps frozenDomain:nil]];
     }
 }
 

@@ -59,5 +59,14 @@
  */
 +(void)removeAllCustomPlatformWithoutFilted;
 
+
+/**
+ *  设置分享面板的代理，从而监控其显示和隐藏的状态
+ *
+ *  @param shareMenuViewDelegate shareMenuViewDelegate @see UMSocialShareMenuViewDelegate
+ *  @dicuss 用户根据自己的需求来判断是否需要监控分享面板的显示和隐藏的状态
+ */
++(void)setShareMenuViewDelegate:(id<UMSocialShareMenuViewDelegate>)shareMenuViewDelegate;
+
 @end
 

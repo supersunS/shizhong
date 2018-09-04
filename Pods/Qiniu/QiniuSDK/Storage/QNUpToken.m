@@ -37,7 +37,7 @@
 - (NSString *)getBucket:(NSDictionary *)info {
 
     NSString *scope = [info objectForKey:@"scope"];
-    if (!scope) {
+    if (!scope || [scope isKindOfClass:[NSNull class]]) {
         return @"";
     }
 
@@ -64,6 +64,10 @@
         return nil;
     }
     return [[QNUpToken alloc] init:dict token:token];
+}
+
+- (NSString *)index {
+    return [NSString stringWithFormat:@"%@:%@", _access, _bucket];
 }
 
 @end

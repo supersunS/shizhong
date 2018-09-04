@@ -193,10 +193,9 @@
 //            _textLabel.text = @"清空缓存";
             
             [[SDImageCache sharedImageCache] clearMemory];
-            [[SDImageCache sharedImageCache] cleanDiskWithCompletionBlock:^{
+            [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
                 [SVProgressHUD showSuccessWithStatus:@"缓存清除成功"];
             }];
-
         }
     }
 }

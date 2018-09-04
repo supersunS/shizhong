@@ -33,6 +33,9 @@
 
 "custom_share_title" = "UMeng share";
 
+"umsocial_shareUI_Title" = "Choose platform to share";
+"umsocial_shareUI_CancelControlText" = "Cancel";
+
 "shareList_title" = "Share To";
 "shareEdit_title" = "Share To ";
 "shareEdit_post" = "Post";
@@ -160,6 +163,14 @@
 "umsocial_tumblr" = "Tumblr";
 "umsocial_linkedin" = "Linkedin";
 "umsocial_whatsapp" = "Whatsapp";
+
+"umsocial_youdaonote" = "ydnote";
+"umsocial_evernote" = "evernote";
+"umsocial_googleplus" = "Google+";
+"umsocial_pocket" = "Pocket";
+"umsocial_dropbox" = "Dropbox";
+"umsocial_vkontakte" = "VKontakte";
+"umsocial_facebookmessenger" = "Messenger";
 
 "umsocial_default" = "template";
 

@@ -96,11 +96,10 @@
  *
  */
 + (UMShareImageObject *)shareObjectWithTitle:(NSString *)title
-                     descr:(NSString *)descr
-                 thumImage:(id)thumImage;
+                                       descr:(NSString *)descr
+                                   thumImage:(id)thumImage;
 
 @end
-
 
 @interface UMShareMusicObject : UMShareObject
 
@@ -129,8 +128,8 @@
  *
  */
 + (UMShareMusicObject *)shareObjectWithTitle:(NSString *)title
-                     descr:(NSString *)descr
-                 thumImage:(id)thumImage;
+                                       descr:(NSString *)descr
+                                   thumImage:(id)thumImage;
 
 @end
 
@@ -394,4 +393,57 @@
  */
 @property (nonatomic, retain) NSData    *fileData;
 
+
 @end
+
+
+#pragma mark - UMMiniProgramObject
+
+typedef NS_ENUM(NSUInteger, UShareWXMiniProgramType){
+    UShareWXMiniProgramTypeRelease = 0,       //**< 正式版  */
+    UShareWXMiniProgramTypeTest = 1,        //**< 开发版  */
+    UShareWXMiniProgramTypePreview = 2,         //**< 体验版  */
+};
+
+/*! @brief 多媒体消息中包含 分享微信小程序的数据对象
+ *
+ * @see UMShareObject
+ */
+@interface UMShareMiniProgramObject : UMShareObject
+
+/**
+ 低版本微信网页链接
+ */
+@property (nonatomic, strong) NSString *webpageUrl;
+
+/**
+ 小程序username
+ */
+@property (nonatomic, strong) NSString *userName;
+
+/**
+ 小程序页面的路径
+ */
+@property (nonatomic, strong) NSString *path;
+
+/**
+ 小程序新版本的预览图 128k
+ */
+@property (nonatomic, strong) NSData *hdImageData;
+
+/**
+ 分享小程序的版本（正式，开发，体验）
+ 正式版 尾巴正常显示
+ 开发版 尾巴显示“未发布的小程序·开发版”
+ 体验版 尾巴显示“未发布的小程序·体验版”
+ */
+@property (nonatomic, assign) UShareWXMiniProgramType miniProgramType;
+
+/**
+ 是否使用带 shareTicket 的转发
+ */
+@property (nonatomic, assign) BOOL withShareTicket;
+
+@end
+
+

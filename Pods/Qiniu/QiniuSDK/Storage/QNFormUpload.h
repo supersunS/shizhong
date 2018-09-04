@@ -11,11 +11,11 @@
 #import "QNUploadManager.h"
 #import <Foundation/Foundation.h>
 
-@class QNHttpManager;
 @interface QNFormUpload : NSObject
 
 - (instancetype)initWithData:(NSData *)data
                      withKey:(NSString *)key
+                withFileName:(NSString *)fileName
                    withToken:(QNUpToken *)token
        withCompletionHandler:(QNUpCompletionHandler)block
                   withOption:(QNUploadOption *)option

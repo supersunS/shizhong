@@ -17,7 +17,7 @@
 #import "QNUserAgent.h"
 #import "QNVersion.h"
 
-static NSString *clientId(void) {
+static NSString *qn_clientId(void) {
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
     NSString *s = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     if (s == nil) {
@@ -31,11 +31,11 @@ static NSString *clientId(void) {
 #endif
 }
 
-static NSString *userAgent(NSString *id) {
+static NSString *qn_userAgent(NSString *id, NSString *ak) {
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
-    return [NSString stringWithFormat:@"QiniuObject-C/%@ (%@; iOS %@; %@)", kQiniuVersion, [[UIDevice currentDevice] model], [[UIDevice currentDevice] systemVersion], id];
+    return [NSString stringWithFormat:@"QiniuObject-C/%@ (%@; iOS %@; %@; %@)", kQiniuVersion, [[UIDevice currentDevice] model], [[UIDevice currentDevice] systemVersion], id, ak];
 #else
-    return [NSString stringWithFormat:@"QiniuObject-C/%@ (Mac OS X %@; %@)", kQiniuVersion, [[NSProcessInfo processInfo] operatingSystemVersionString], id];
+    return [NSString stringWithFormat:@"QiniuObject-C/%@ (Mac OS X %@; %@; %@)", kQiniuVersion, [[NSProcessInfo processInfo] operatingSystemVersionString], id, ak];
 #endif
 }
 
@@ -51,10 +51,22 @@ static NSString *userAgent(NSString *id) {
 
 - (instancetype)init {
     if (self = [super init]) {
-        _id = clientId();
-        _ua = userAgent(_id);
+        _id = qn_clientId();
     }
     return self;
+}
+
+/**
+ *  UserAgent
+ */
+- (NSString *)getUserAgent:(NSString *)access {
+    NSString *ak;
+    if (access == nil || access.length == 0) {
+        ak = @"-";
+    } else {
+        ak = access;
+    }
+    return qn_userAgent(_id, ak);
 }
 
 /**
